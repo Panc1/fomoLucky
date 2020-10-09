@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="tab"
+            type="com.fomolucky.main.model.Tab" />
+
+        <variable
+            name="position"
+            type="int" />
+
+        <variable
+            name="callback"
+            type="com.fomolucky.main.adapter.TabAdapter.Callback" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:onClick="@{()->callback.onClicked(position)}"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@{tab.selected ? tab.icon_selected:tab.icon_unselected}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{tab.name}"
+            android:textColor="@{tab.selected? @color/pink_ff5a5f : @color/gray_999999 }"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+
+</layout>
